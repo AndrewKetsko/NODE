@@ -14,26 +14,6 @@ const getContactById = async (id) => {
   return data.find((contact) => contact.id === id);
 };
 
-// const getContact = async (data) => {
-//   const { id = null, name = null, email = null, phone = null } = data;
-//   searchParam = id
-//     ? "id"
-//     : name
-//     ? "name"
-//     : email
-//     ? "email"
-//     : phone
-//     ? "phone"
-//     : null;
-//   if (!searchParam) return "no params to find contact";
-//   const fileData = await fs.readFile(contactsPath, "utf-8");
-//   const contact = JSON.parse(fileData).filter(
-//     (contact) => contact[searchParam] === data[searchParam]
-//   );
-//   if (contact.length === 0) return "there are no contact with this params";
-//   return contact;
-// };
-
 const removeContact = async (id) => {
   const data = await listContacts();
   const index = data.findIndex((contact) => contact.id === id);
@@ -58,3 +38,25 @@ module.exports = {
   removeContact,
   addContact,
 };
+
+
+
+// const getContact = async (data) => {
+//   const { id = null, name = null, email = null, phone = null } = data;
+//   searchParam = id
+//     ? "id"
+//     : name
+//     ? "name"
+//     : email
+//     ? "email"
+//     : phone
+//     ? "phone"
+//     : null;
+//   if (!searchParam) return "no params to find contact";
+//   const fileData = await fs.readFile(contactsPath, "utf-8");
+//   const contact = JSON.parse(fileData).filter(
+//     (contact) => contact[searchParam] === data[searchParam]
+//   );
+//   if (contact.length === 0) return "there are no contact with this params";
+//   return contact;
+// };
